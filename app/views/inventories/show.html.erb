@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product name:</strong>
+  <%= @inventory.product_name %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @inventory.quantity %>
+</p>
+
+<p>
+  Warehouse at <strong> <%= @inventory.warehouse.location %></strong> and the name of warehouse is <strong><%= @inventory.warehouse.name %></strong>
+</p>
+<p>
+  <% if @inventory.main_image.attached? %>
+  <%= image_tag @inventory.main_image, style: 'width:60%;'%>
+  <% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_inventory_path(@inventory) %> |
+<%= link_to 'Back', inventories_path %>

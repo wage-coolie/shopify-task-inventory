@@ -1,0 +1,39 @@
+<%= form_with(model: inventory) do |form| %>
+  <% if inventory.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(inventory.errors.count, "error") %> prohibited this inventory from being saved:</h2>
+
+      <ul>
+        <% inventory.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  <div class="field mb-2">
+    <%= form.label :product_name, class: "form-label"%>
+    <%= form.text_field :product_name , class: "form-text"%>
+  </div>
+
+  <div class="field mb-2">
+    <%= form.label :quantity, class: "form-label"%>
+    <%= form.number_field :quantity, class: "form-text" %>
+  </div>
+
+<div class="fielld mb-2">
+  <%= form.label :main_image, class: "form-label" %>
+  <%= form.file_field :main_image %>
+</div>
+
+<div  class="fielld mb-2">
+    <%= form.label :warehuose_id, class: "form-label"%>  
+  <%= collection_select(:inventory, :warehouse_id, @warehouses, :id, :location, {:prompt => true}) %>
+</div>
+
+  <div class="actions btn btn-success" >
+    <%= form.submit class: "btn btn-outline-success  submit_search text-white" %>
+  </div>
+
+<% end %>

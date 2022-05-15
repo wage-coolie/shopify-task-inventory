@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+
+<p class='row bg-warning text-white justify-content-center '>
+  <strong class='col-sm-4 fs-2'>Name:</strong>
+  <strong class='col-sm-4 fs-2'><%= @warehouse.name %></strong>
+</p>
+
+<p class='row bg-warning text-white justify-content-center '>
+  <strong class='col-sm-4 fs-2'>Location:</strong>
+  <strong class='col-sm-4 fs-2'><%= @warehouse.location %></strong>
+</p>
+<hr>
+<div class='row'>
+  <div class='col-sm-10'>All the item on this warehouse-location would appear below</div>
+</div>
+<div class="row">
+  <% @inventory_items.each do |inventory_item| %>
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title"><%= inventory_item.product_name %></h5>
+        <p class="card-text"><%= inventory_item.quantity %></p>
+        <!-- <a href="" class="btn btn-primary">View Item</a> -->
+        <%= link_to 'Show', inventory_path(inventory_item) %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<hr>
+<%= link_to 'Edit', edit_warehouse_path(@warehouse) %> |
+<%= link_to 'Back', warehouses_path %>

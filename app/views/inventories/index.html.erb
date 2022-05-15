@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Inventories</h1>
+
+<table class="table table-danger">
+  <thead>
+    <tr>
+      <th>Product name</th>
+      <th>Quantity</th>
+      <th>Image</th>
+      <th>Warehouse-Location</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inventories.each do |inventory| %>
+      <tr>
+        <td><%= inventory.product_name %></td>
+        <td><%= inventory.quantity %></td>
+        <td><% if !inventory.main_image.attached? %>
+          <%= "No image attached" %>  
+          <% else %>
+          <%= link_to "#{inventory.main_image.blob.filename}",  "#{request.base_url}#{(url_for(inventory.main_image))}" %>
+            <% end %>
+          </td>
+        <td><p>
+   <strong> <%= inventory.warehouse.location %></strong> -- <strong><%= inventory.warehouse.name %></strong>
+</p></td>
+        <td><%= link_to 'Show', inventory %></td>
+        <td><%= link_to 'Edit', edit_inventory_path(inventory) %></td>
+        <td><%= link_to 'Destroy', inventory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Inventory Item', new_inventory_path, class: "btn btn-warning" %>
