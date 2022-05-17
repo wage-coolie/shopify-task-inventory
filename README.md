@@ -1,24 +1,23 @@
-# README
+# Shopify inventory challenge .
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Local Setup:
 
-Things you may want to cover:
+* Ruby version - 2.7.2 , Rails - 6.1.5
 
-* Ruby version
+* System dependencies - Sqlite ( for local setup ) , ruby 
 
-* System dependencies
+* Create a folder of same name as the  repo name
 
-* Configuration
+* initialse the folder, add remote url
 
-* Database creation
+* git pull
 
-* Database initialization
+* run bundle installl
 
-* How to run the test suite
+* run rails webpack:install
 
-* Services (job queues, cache servers, search engines, etc.)
+* yarn install
 
-* Deployment instructions
+* rails db:migrate
 
-* ...
+* rails s
