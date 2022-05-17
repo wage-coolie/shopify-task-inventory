@@ -1,4 +1,4 @@
-# Shopify inventory challenge .
+# Shopify inventory challenge -- [LINK] https://mysterious-dawn-39484.herokuapp.com/
 
 Local Setup:
 
